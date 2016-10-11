@@ -16,6 +16,13 @@ let routes = {
 };
 
 class Routes extends Component {
+
+   componentWillMount() {
+     browserHistory.listen((data) => {
+          console.log(data);
+     });
+   }
+
    render() {
        return <Router routes={routes} history={browserHistory} />;
    }

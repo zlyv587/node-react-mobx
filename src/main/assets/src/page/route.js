@@ -1,5 +1,5 @@
 export default [
-     {
+    {
         path: '/detail',
         getComponent: (location, cb) => {
             require.ensure([], (require) => {
