@@ -4,6 +4,10 @@ var path = require('path');
 var webpack = require('webpack');
 var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+console.log('condition', process.env.NODE_ENV);
+if (process.env.NODE_ENV === 'production') {
+    publicPath = 'http://localhost:8086/public/'
+}
 
 var babelQuery = {
     presets: ['es2015', 'react', 'stage-0'],
@@ -21,7 +25,7 @@ module.exports = {
     //入口文件输出配置
     output: {
         path: '../node/public',
-        publicPath: 'http://localhost:8086/public/',
+        publicPath: publicPath,
         filename: '[name].js'
     },
     module: {
