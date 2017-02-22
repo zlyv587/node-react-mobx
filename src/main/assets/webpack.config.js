@@ -2,10 +2,15 @@ var join = require('path').join;
 var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
-var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-console.log('condition', process.env.NODE_ENV);
-if (process.env.NODE_ENV === 'production') {
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+
+console.log(process.env.NODE_ENVn);
+console.log(typeof process.env.NODE_ENV, 1111);
+if (process.env.NODE_ENV  == 'prod') {
+    publicPath = 'http://localhost:3000/public/'
+} else {
     publicPath = 'http://localhost:8086/public/'
 }
 
@@ -15,9 +20,20 @@ var babelQuery = {
     cacheDirectory: true
 };
 
+const copyFile = {
+    production: [
+        {
+            from: 'src/static/jquery-2.2.1.min.js', to: 'jquery.min.js'
+        }, {
+            from: 'src/static/antd-0.12.15.min.css', to: 'antd.min.css'
+
+        }, {
+            from: 'src/static/antd-0.12.15.min.js', to: 'antd.min.js'
+        }
+    ]
+}
+
 module.exports = {
-    //插件项
-    plugins: [commonsPlugin],
     //页面入口文件配置
     entry: {
         index: './src/entry/Index.jsx'
@@ -71,6 +87,9 @@ module.exports = {
             disable: false,
             allChunks: true
         }),
+        new CopyWebpackPlugin(
+            copyFile.production
+        ),
     ],
     //其它解决方案配置
     resolve: {

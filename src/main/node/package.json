@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "test": "echo iiiiiii && supervisor app.js"
+    "test": "supervisor app.js"
   },
   "dependencies": {
-    "express": "2.5.8",
+    "connect-mongo": ">= 0.9.9",
+    "cross-env": "^3.1.4",
     "ejs": ">= 0.0.1",
-    "mongodb": ">= 0.9.9",
-    "connect-mongo": ">= 0.9.9"
+    "express": "2.5.8",
+    "mongodb": ">= 0.9.9"
   }
 }

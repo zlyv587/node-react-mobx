@@ -4,9 +4,9 @@
   "description": "node-react-mobx",
   "main": "src/entry/Index.js",
   "scripts": {
-    "route": "node generate-routes.js",
-    "dev": "export NODE_ENV=production && webpack-dev-server --port 8086 --progress --colors --inline",
-    "build-test": "export NODE_ENV=test && npm run route && webpack --profile --progress --colors --display-modules",
+    "dev": "cross-env NODE_ENV=dev&& webpack-dev-server --port 8086 --progress --colors --inline",
+    "build": "set NODE_ENV=prod&&webpack --progress",
+    "build-test": "cross-env NODE_ENV=test && npm run route && webpack --profile --progress --colors --display-modules",
     "build-release": "npm run route && webpack --progress",
     "build:dll": "webpack --config webpack.dll.js"
   },
@@ -15,6 +15,7 @@
   "dependencies": {
     "antd": "^1.10.0",
     "classnames": "^2.2.5",
+    "cross-env": "^3.1.4",
     "deepcopy": "^0.6.3",
     "es6-promise": "^3.2.1",
     "eventproxy": "^0.3.5",
@@ -42,6 +43,7 @@
     "babel-runtime": "^6.11.6",
     "clean-webpack-plugin": "^0.1.10",
     "copy-webpack-plugin": "^3.0.1",
+    "cross-env": "^3.1.4",
     "css-loader": "^0.24.0",
     "eslint": "^3.3.1",
     "eslint-config-airbnb": "^10.0.1",

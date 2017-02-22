@@ -22,8 +22,8 @@ app.configure(function () {
         secret: settings.cookieSecret,
         db: settings.db,
     }));
-    app.use(express.router(routes));
     app.use('/public', express.static(__dirname + '/public'));
+    app.use(express.router(routes));
 });
 
 app.configure('development', function () {
