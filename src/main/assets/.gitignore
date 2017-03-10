@@ -1,7 +1,10 @@
 node_modules
-src/main/assets/npm-debug.log
+npm-debug.log
 .happypack
 ../node/node_modules
+../node/npm-debug.log
+../../../.idea/workspace.xml
+
 
 
 
