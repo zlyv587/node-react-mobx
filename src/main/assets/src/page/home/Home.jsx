@@ -1,6 +1,8 @@
+import './style.less';
 import React, { Component} from 'react';
 import { observer } from 'mobx-react';
 import Store from './store';
+import logo from './logo.jpg';
 
 const store = new Store();
 
@@ -15,9 +17,10 @@ class Home extends  Component {
     render() {
         return (
             <div>
-                <div>home页面罗</div>
+                <div className="home">home页面罗</div>
                 <div>{store.homeData.title}</div>
                 <div>{store.homeData.content}</div>
+                <img src={logo}/>
                 <div　onClick={store.goDetail}>跳转</div>
             </div>
         )
